@@ -1,5 +1,7 @@
 package me.chenjr.teatracing;
 
+
+
 import me.chenjr.teatracing.domain.Factory;
 import me.chenjr.teatracing.repositories.FactoryRepository;
 import org.junit.Assert;
@@ -11,14 +13,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TeaTracingApplicationTests {
+public class RepoAutoMethodTest {
 
     @Autowired
     FactoryRepository factoryRepository;
-    @Test
-    public void contextLoads() {
-        Assert.assertNotNull("Null factoryRepository",factoryRepository);
-    }
 
+    @Test
+    public void  testCURD(){
+        String name = "制茶师阿福";
+        factoryRepository.save(new Factory(name));
+        Assert.assertNotNull( "name Not Found!",factoryRepository.findByName(name));
+        Assert.assertNull(factoryRepository.findByName("制茶师"));
+
+    }
 
 }
