@@ -16,6 +16,7 @@
     <table class="table table-striped">
         <thead>
         <th>#</th>
+        <th>编号</th>
         <th>生产厂家</th>
         <th>制茶师</th>
         <th>出售商家</th>
@@ -24,6 +25,7 @@
         <tbody>
         <tr th:each="tea : ${teaPkgList}">
             <td th:text="${tea.id}"></td>
+            <td th:text="${tea.teacode}"></td>
             <td th:text="${tea.factory}"></td>
             <td th:text="${tea.master}"></td>
             <td th:text="${tea.seller}"></td>

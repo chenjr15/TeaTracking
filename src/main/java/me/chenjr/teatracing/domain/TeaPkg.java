@@ -9,15 +9,44 @@ public class TeaPkg {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue()
     @Column(name = "ID")
-    private int  id;
+    private Long  id;
 
     private String factory;
+    private int factoryid;
 
     private String master;
+    private long masterid;
+
+    public int getFactoryid() {
+        return factoryid;
+    }
+
+    public void setFactoryid(int factoryid) {
+        this.factoryid = factoryid;
+    }
+
+    public long getMasterid() {
+        return masterid;
+    }
+
+    public void setMasterid(long masterid) {
+        this.masterid = masterid;
+    }
+
+    public int getSellerid() {
+        return sellerid;
+    }
+
+    public void setSellerid(int sellerid) {
+        this.sellerid = sellerid;
+    }
+
     private String seller;
+    private int sellerid;
     private String pic;
+    private Long teacode;
 
     public TeaPkg() {
 
@@ -27,9 +56,12 @@ public class TeaPkg {
         this.factory = factory;
         this.master = master;
         this.seller = seller;
+//        this.teacode =
     }
 
-    public void setId(int id) {
+   /* GETTER SETTER */
+
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -49,7 +81,7 @@ public class TeaPkg {
         this.pic = pic;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -67,5 +99,13 @@ public class TeaPkg {
 
     public String getPic() {
         return pic;
+    }
+
+    public Long getTeacode() {
+        return teacode;
+    }
+
+    public void setTeacode(Long teacode) {
+        this.teacode = teacode;
     }
 }

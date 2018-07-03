@@ -10,13 +10,19 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories
-public class TeatracingApplication {
+public class TeaTracingApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext contex = SpringApplication.run(TeatracingApplication.class, args);
+        ConfigurableApplicationContext contex = SpringApplication.run(TeaTracingApplication.class, args);
         TeaPkgRepository teaPkgRepository = contex.getBean(TeaPkgRepository.class);
-        teaPkgRepository.save(new TeaPkg("某某知名厂","某知名制茶师","全国最大零售商"));
+        TeaPkgService teaPkgService = contex.getBean(TeaPkgService.class);
 
+
+        TeaPkg pkg0=  new TeaPkg("某某知名厂", "某知名制茶师", "全国最大零售商");
+
+//        teaPkgRepository.save(pkg0);
+
+        teaPkgService.add(pkg0);
 
     }
 }
