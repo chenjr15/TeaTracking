@@ -18,7 +18,7 @@ public class TeaTracingApplication {
         TeaPkgService teaPkgService = contex.getBean(TeaPkgService.class);
 
 
-        TeaPkg pkg0=  new TeaPkg("某某知名厂", "某知名制茶师", "全国最大零售商");
+        TeaPkg pkg0=  new TeaPkg("某某知名厂", "SS", "全国最大零售商");
 
 //        teaPkgRepository.save(pkg0);
 
