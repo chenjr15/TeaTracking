@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询结果</title>
+</head>
+<table class="table table-striped">
+    <thead>
+    <th>#</th>
+    <th>生产厂家</th>
+    <th>制茶师</th>
+    <th>出售商家</th>
+    <th>照片</th>
+    </thead>
+    <tbody>
+    <tr th:each="tea : ${teaList}">
+        <td th:text="${tea.id}"></td>
+        <td th:text="${tea.factory}"></td>
+        <td th:text="${tea.master}"></td>
+        <td th:text="${tea.seller}"></td>
+        <td th:text="${tea.pic}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<body>
+
+</body>
+</html>
