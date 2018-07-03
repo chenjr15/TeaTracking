@@ -1,13 +1,12 @@
 package me.chenjr.teatracing.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Entity
 public class Seller {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "seller_id_inst")
+    @TableGenerator(name = "seller_id_inst")
     @Column(name = "ID")
     private int id;
     private String name;

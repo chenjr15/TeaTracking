@@ -1,15 +1,13 @@
 package me.chenjr.teatracing.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Factory {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "factory_id_inst")
+    @TableGenerator(name = "factory_id_inst")
     @Column(name = "ID")
     private int id;
     private String name;

@@ -9,7 +9,8 @@ public class TeaPkg {
 
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "teapkg_id_inst")
+    @TableGenerator(name = "teapkg_id_inst")
     @Column(name = "ID")
     private Long  id;
 
