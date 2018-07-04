@@ -1,1 +1,20 @@
-th:text="${teacode}"
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加成功</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
+</head>
+<body>
+<div class="container content" >
+    <div class="center">茶叶编号:<a href="query.jsp" th:text="${teacode}" th:href="${queryUrl}" >茶叶编号</a></div>
+    <a href="/" >返回首页</a>
+</div>
+
+
+</body>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

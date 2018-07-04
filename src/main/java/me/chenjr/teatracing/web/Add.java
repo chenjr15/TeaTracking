@@ -23,11 +23,15 @@ public class Add {
 
         TeaPkg  teaPkg =  teaPkgService.add(new TeaPkg(factory_name,master_name,seller_name));
         model.addAttribute("teacode",teaPkg.getTeacode());
+        model.addAttribute("queryUrl","/query?tea_id="+teaPkg.getTeacode());
+        model.addAttribute("viewname","add");
 
         return "add.html";
     }
     @RequestMapping(value = "/add",method = {RequestMethod.GET})
-    public String showAddUI(){
+    public String showAddUI(Model model){
+        model.addAttribute("viewname","add");
         return "add-ui.html";
+
     }
 }

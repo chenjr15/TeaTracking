@@ -17,7 +17,7 @@ public class Index {
 
     @RequestMapping("/")
     public String showIndex(Model model){
-
+        model.addAttribute("viewname","index");
         return  "index";
     }
 }

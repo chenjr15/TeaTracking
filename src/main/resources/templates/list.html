@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>查询结果</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
-
-</head>
-
+<head th:replace="header::head-tag"></head>
 
 <body>
-<div class="container">
-    <table class="table table-striped">
-        <thead>
-        <th>#</th>
-        <th>编号</th>
-        <th>生产厂家</th>
-        <th>制茶师</th>
-        <th>出售商家</th>
-        <th>照片</th>
-        </thead>
-        <tbody>
-        <tr th:each="tea : ${teaPkgList}">
-            <td th:text="${tea.id}"></td>
-            <td th:text="${tea.teacode}"></td>
-            <td th:text="${tea.factory}"></td>
-            <td th:text="${tea.master}"></td>
-            <td th:text="${tea.seller}"></td>
-            <td th:text="${tea.pic}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<nav th:replace="header::nav-tag"></nav>
+<!--内容-->
+<main role="main" class="container">
 
+    <div class="container content" >
+        <table class="table table-striped">
+            <thead>
+            <th>#</th>
+            <th>编号</th>
+            <th>生产厂家</th>
+            <th>制茶师</th>
+            <th>出售商家</th>
+            <th>照片</th>
+            </thead>
+            <tbody>
+            <tr th:each="tea : ${teaPkgList}">
+                <td th:text="${tea.id}"></td>
+                <td th:text="${tea.teacode}"></td>
+                <td th:text="${tea.factory}"></td>
+                <td th:text="${tea.master}"></td>
+                <td th:text="${tea.seller}"></td>
+                <td th:text="${tea.pic}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <p >以上为全部结果</p>
 
+    </div>
+</main>
+
+<span th:replace="header::footer-tag"></span>
 </body>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </html>

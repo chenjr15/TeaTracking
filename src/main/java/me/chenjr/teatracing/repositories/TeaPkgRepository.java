@@ -10,4 +10,6 @@ public interface TeaPkgRepository extends JpaRepository<TeaPkg,Long> {
     TeaPkg findBySeller(int id);
 
 
+
+
 }

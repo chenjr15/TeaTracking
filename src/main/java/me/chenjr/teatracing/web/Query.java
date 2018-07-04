@@ -17,12 +17,15 @@ public class Query {
     @Autowired
     TeaPkgRepository teaPkgRepository;
     @RequestMapping("/query")
-    public String showTeaPkg(@RequestParam Long tea_id, Model model){
-        Long[] tea_ids= {tea_id};
-        List<TeaPkg> list= teaPkgRepository.findAllById(Arrays.asList(tea_ids));
+    public String showTeaPkg(@RequestParam String tea_id, Model model){
+        Long[] tea_ids= {Long.valueOf(tea_id)};
+        System.out.println(tea_id);
+        System.out.println(tea_ids[0].toString());
+        TeaPkg teaPkg= teaPkgRepository.findByTeacode(tea_ids[0]);
 //        if (list.size()==0) return  "没有找到.";
-        model.addAttribute("teaList",list);
-        return "query.html";
+        model.addAttribute("teapkg",teaPkg);
+        model.addAttribute("viewname","query");
+        return "query";
     }
 
 }

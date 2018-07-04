@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>茶叶入库</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<head th:replace="header::head-tag"></head>
 
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
-</head>
 <body>
-<div class="container">
-    <form method="post">
+<nav th:replace="header::nav-tag"></nav>
+<!--内容-->
+<main role="main" class="container">
 
-        <p>厂家地址 <input type="text" name="factory_name"/> </p>
-        <p>制茶师   <input type="text" name="master_name"/> </p>
-        <p>零售商   <input type="text" name="seller_name"/> </p>
-        <p>生产日期 <input type="date" name="date"/> </p>
-        <p>生产照片 <input type="file" name="pic-file"/> </p>
-        <p> <input type="submit">
+    <div class="jumbotron">
+        <form method="post">
 
-    </form>
-</div>
+            <p>厂家地址 <input class="form-control mr-sm-2" type="text" name="factory_name"/> </p>
+            <p>制茶师   <input  class="form-control mr-sm-2" type="text" name="master_name"/> </p>
+            <p>零售商   <input class="form-control mr-sm-2" type="text" name="seller_name"/> </p>
+            <p>生产日期 <input class="form-control mr-sm-2" type="date" name="date"/> </p>
+            <p>生产照片 <input class="form-control mr-sm-2" type="file" name="pic-file"/> </p>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
+
+        </form>
+    </div>
+</main>
+<span th:replace="header::footer-tag"></span>
 
 </body>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

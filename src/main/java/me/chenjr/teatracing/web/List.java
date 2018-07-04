@@ -16,6 +16,7 @@ public class List {
     public String listAll(Model model){
         java.util.List<TeaPkg> teaPkgList = teaPkgService.loadAll();
         model.addAttribute("teaPkgList",teaPkgList);
+        model.addAttribute("viewname","list");
         return  "list";
 
     }

@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>茶叶溯源系统</title>
+<html lang="en">
+<head th:replace="header::head-tag"></head>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
-
-</head>
 <body>
-<div class="container">
-    <div class="jumbotron">
-        <h1>茶叶溯源系统</h1>
-        <h2>对您的茶叶知根知底</h2>
+<nav th:replace="header::nav-tag"></nav>
+<!--内容-->
+<main role="main" class="container">
+    <div class="container">
+        <div class="jumbotron">
+            <h1>茶叶溯源系统</h1>
+            <h2>对您的茶叶知根知底</h2>
+        </div>
+
+
+
     </div>
 
+    <div class="container">
+        <form class="form-inline mt-2 mt-md-0" action="query">
+            <input class="form-control mr-sm-2" type="number" required="required" name="tea_id" placeholder="请输入茶叶代码" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
+        </form>
 
+    </div>
 
-</div>
+</main>
 
-<div class="container">
-    <form action="query"  >
-
-        <input type="number" name="tea_id" maxlength="18" required="required" placeholder="请输入茶叶代码"  >
-        <input type="submit"/>
-    </form>
-</div>
-
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<span th:replace="header::footer-tag"></span>
 </body>
 </html>
