@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>查询结果</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
-</head>
+<head th:replace="header::head-tag"></head>
 
 <body>
+<nav th:replace="header::nav-tag"></nav>
+<!--内容-->
+<main role="main" class="container">
+
 <div class="container content" >
     <table class="table table-striped">
         <thead>
@@ -23,7 +20,7 @@
         <tbody>
         <tr th:if="${teapkg}" >
             <td th:text="${teapkg.id}"></td>
-            <td th:text="${tea.teacode}"></td>
+            <td th:text="${teapkg.teacode}"></td>
             <td th:text="${teapkg.factory}"></td>
             <td th:text="${teapkg.master}"></td>
             <td th:text="${teapkg.seller}"></td>
@@ -35,7 +32,9 @@
     <p th:if="${teapkg} ==null " >错误的编码</p>
 
 </div>
+</main>
 
+<span th:replace="header::footer-tag"></span>
 </body>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </html>

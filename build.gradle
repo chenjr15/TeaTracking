@@ -21,6 +21,7 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 
@@ -29,6 +30,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
-    compile group: 'com.h2database', name: 'h2', version:'1.4.191'
+//    compile group: 'com.h2database', name: 'h2', version:'1.4.191'
+    compile 'org.xerial:sqlite-jdbc:3.23.1'
+    implementation 'com.github.gwenn:sqlite-dialect:-SNAPSHOT'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

@@ -1,19 +1,24 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>添加成功</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="header::head-tag"></head>
 
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
-</head>
 <body>
+<nav th:replace="header::nav-tag"></nav>
+<main role="main" class="container">
 <div class="container content" >
-    <div class="center">茶叶编号:<a href="query.jsp" th:text="${teacode}" th:href="${queryUrl}" >茶叶编号</a></div>
+    <div class="center">
+        <form action="query" method="get">
+            茶叶编号:<input hidden="hidden" name="tea_id" th:value="${teacode}" >
+            <p  th:text="${teacode}"  >xxxxxxxx</p>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查看</button>
+
+        </form>
+        </div>
     <a href="/" >返回首页</a>
 </div>
 
+</main>
+<span th:replace="header::footer-tag"></span>
 
 </body>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
