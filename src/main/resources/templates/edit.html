@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="header::head-tag">
+    <meta charset="UTF-8">
+    <title>编辑</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<nav th:replace="header::nav-tag">
+    <a class="navbar-brand" href="#">茶叶溯源</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item " th:classappend="${viewname=='index'} ?'active'">
+                <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" th:classappend="${viewname=='add'} ?'active'">
+                <a class="nav-link " href="/add">入库</a>
+            </li>
+            <li class="nav-item" th:classappend="${viewname=='list'} ?'active'">
+                <a class="nav-link " href="/list">列表</a>
+            </li>
+
+        </ul>
+        <form action="/query" class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="number" required="required" name="tea_id" placeholder="输入编码"
+                   aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
+        </form>
+    </div>
+</nav>
+<body>
+
+<main role="main" class="container">
+
+    <div class="container content">
+        <form     th:if="${teaPkg}" class="form-horizontal center" action="/update" role="form" method="post">
+
+            <input hidden="hidden" type="text" name="tea_id" th:value="${teaPkg.id}" />
+
+            <div class="form-group">
+                <label>茶叶编号 </label>
+                <label  th:text="${teaPkg.teacode}" class="form-control mr-sm-2" >teacode</label>
+            </div>
+            <div class="form-group">
+                <label>厂家地址 </label>
+                <input  th:value="${teaPkg.factory}" class="form-control mr-sm-2" type="text" name="factory_name"/>
+            </div>
+
+            <div class="form-group">
+                <label>制茶师  </label>
+                <input  th:value="${teaPkg.master}"  class="form-control mr-sm-2" type="text" name="master_name"/>
+            </div>
+            <div class="form-group">
+
+                <label>零售商 </label>
+                <input th:value="${teaPkg.seller}" class="form-control mr-sm-2" type="text" name="seller_name"/>
+            </div>
+            <div class="form-group">
+                <label>生产日期 </label>
+                <input class="form-control mr-sm-2" type="date" name="date" value="2018-05-02"/>
+            </div>
+            <div class="form-group">
+                <label>生产照片 </label>
+                <div>
+                    <img src="/tea.jpeg" />
+                </div>
+
+                <input class="form-control mr-sm-2" type="file" name="pic-file"/>
+            </div>
+            <div class="form-group">
+                <div class="checkbox mr-offset-4">
+                    <!--th:text="${teaPkg.forsell} ? '待售':'已售出' "-->
+                    <label  ><input th:checked="${teaPkg.forsell}" type="radio" name="forsell" value="1"/> 待售 </label>
+                    <label  ><input th:checked="not ${teaPkg.forsell} " type="radio" name="forsell" value="0"/> 已售 </label>
+                </div>
+
+
+            </div>
+            <div class="form-group">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">提交</button>
+
+
+            </div>
+
+
+        </form>
+        <p th:if="${teaPkg} == null ">错误的编码</p>
+    </div>
+
+</main>
+<span th:replace="header::footer-tag"></span>
+</body>
+</html>
