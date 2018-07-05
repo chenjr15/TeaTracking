@@ -8,7 +8,7 @@ public class Seller {
     @GeneratedValue(strategy = GenerationType.TABLE,generator = "seller_id_inst")
     @TableGenerator(name = "seller_id_inst")
     @Column(name = "ID")
-    private int id;
+    private Long id;
     private String name;
 
     public Seller() {
@@ -18,11 +18,11 @@ public class Seller {
         this.name = name;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

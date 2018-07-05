@@ -1,6 +1,5 @@
 package me.chenjr.teatracing.repositories;
 
-;
 import me.chenjr.teatracing.domain.Master;
 import org.springframework.data.jpa.repository.JpaRepository;
 

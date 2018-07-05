@@ -15,41 +15,21 @@ public class TeaPkg {
     private Long  id;
 
     private String factory;
-    private int factoryid;
+    private Long factoryid;
 
     private String master;
-    private long masterid;
+    private Long masterid;
 
-    public int getFactoryid() {
-        return factoryid;
-    }
+    private boolean forsell;
 
-    public void setFactoryid(int factoryid) {
-        this.factoryid = factoryid;
-    }
-
-    public long getMasterid() {
-        return masterid;
-    }
-
-    public void setMasterid(long masterid) {
-        this.masterid = masterid;
-    }
-
-    public int getSellerid() {
-        return sellerid;
-    }
-
-    public void setSellerid(int sellerid) {
-        this.sellerid = sellerid;
-    }
 
     private String seller;
-    private int sellerid;
+    private Long sellerid;
     private String pic;
     private Long teacode;
 
     public TeaPkg() {
+        forsell = true;
 
     }
 
@@ -57,6 +37,7 @@ public class TeaPkg {
         this.factory = factory;
         this.master = master;
         this.seller = seller;
+        forsell = true;
 //        this.teacode =
     }
 
@@ -102,11 +83,43 @@ public class TeaPkg {
         return pic;
     }
 
+    public Long getFactoryid() {
+        return factoryid;
+    }
+
+    public void setFactoryid(Long factoryid) {
+        this.factoryid = factoryid;
+    }
+
+    public Long getMasterid() {
+        return masterid;
+    }
+
+    public void setMasterid(Long masterid) {
+        this.masterid = masterid;
+    }
+
+    public Long getSellerid() {
+        return sellerid;
+    }
+
+    public void setSellerid(Long sellerid) {
+        this.sellerid = sellerid;
+    }
+
     public Long getTeacode() {
         return teacode;
     }
 
     public void setTeacode(Long teacode) {
         this.teacode = teacode;
+    }
+
+    public boolean isForsell() {
+        return forsell;
+    }
+
+    public void setForsell(boolean forsell) {
+        this.forsell = forsell;
     }
 }
