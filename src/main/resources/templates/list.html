@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head th:replace="header::head-tag"></head>
+<html lang="zh">
+<head th:replace="header::head-tag">
+
+</head>
 
 <body>
 <nav th:replace="header::nav-tag"></nav>
@@ -16,15 +18,43 @@
             <th>制茶师</th>
             <th>出售商家</th>
             <th>照片</th>
+            <th>状态</th>
+            <th>操作</th>
+            <th></th>
+            <th></th>
             </thead>
             <tbody>
             <tr th:each="tea : ${teaPkgList}">
-                <td th:text="${tea.id}"></td>
-                <td th:text="${tea.teacode}"></td>
-                <td th:text="${tea.factory}"></td>
-                <td th:text="${tea.master}"></td>
-                <td th:text="${tea.seller}"></td>
-                <td th:text="${tea.pic}"></td>
+                <td th:text="${tea.id}">id here</td>
+                <td th:text="${tea.teacode}">teacode</td>
+                <td th:text="${tea.factory}">factory</td>
+                <td th:text="${tea.master}">master</td>
+                <td th:text="${tea.seller}">seller</td>
+                <td th:text="${tea.pic}">pic</td>
+                <td th:text="${tea.forsell} ? '待售':'已售出' ">已售出</td>
+                <td >
+                    <form action="edit" method="POST">
+                        <input th:value="${tea.id}" hidden="hidden" name="tea_id" />
+                        <button name="action" value="sell" class="btn btn-outline-success my-2 my-sm-0"  type="submit">售出</button>
+
+                    </form>
+                </td>
+                <td>
+                    <form action="edit" method="GET">
+                        <input th:value="${tea.id}" hidden="hidden" name="tea_id" />
+                        <button class="btn btn-outline-success my-2 my-sm-0"  type="submit">编辑</button>
+
+                    </form>
+                </td>
+                <td>
+                    <form action="edit" method="POST">
+                        <input th:value="${tea.id}" hidden="hidden" name="tea_id" />
+
+                        <button name="action" value="del" class="btn btn-outline-success my-2 my-sm-0"  type="submit">删除</button>
+
+                    </form>
+
+                </td>
             </tr>
             </tbody>
         </table>
