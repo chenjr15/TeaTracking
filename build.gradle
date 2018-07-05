@@ -30,6 +30,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+    compile 'org.projectlombok:lombok:1.16.8'
 //    compile group: 'com.h2database', name: 'h2', version:'1.4.191'
     compile 'org.xerial:sqlite-jdbc:3.23.1'
     implementation 'com.github.gwenn:sqlite-dialect:-SNAPSHOT'
