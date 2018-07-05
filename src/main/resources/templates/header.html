@@ -1,12 +1,12 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:fragment="head-tag">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="/tea.ico">
 
     <title>茶叶溯源系统</title>
 
@@ -14,7 +14,7 @@
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="navbar-top-fixed.css" rel="stylesheet">
+    <!--<link href="navbar-top-fixed.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -30,15 +30,15 @@
                 <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item" th:classappend="${viewname=='add'} ?'active'">
-                <a class="nav-link " href="add">入库</a>
+                <a class="nav-link " href="/add">入库</a>
             </li>
             <li class="nav-item" th:classappend="${viewname=='list'} ?'active'">
-                <a class="nav-link " href="list">列表</a>
+                <a class="nav-link " href="/list">列表</a>
             </li>
 
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="输入编码" aria-label="Search">
+        <form action="/query" class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="number" required="required" name="tea_id" placeholder="输入编码" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
         </form>
     </div>
