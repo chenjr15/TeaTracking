@@ -4,20 +4,19 @@ import me.chenjr.teatracing.domain.Factory;
 import me.chenjr.teatracing.domain.Master;
 import me.chenjr.teatracing.domain.Seller;
 import me.chenjr.teatracing.domain.TeaPkg;
-import org.slf4j.Logger;
 import me.chenjr.teatracing.repositories.FactoryRepository;
 import me.chenjr.teatracing.repositories.MasterRepository;
 import me.chenjr.teatracing.repositories.SellerRepository;
 import me.chenjr.teatracing.repositories.TeaPkgRepository;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TeaPkgServiceImpl implements TeaPkgService {
-    protected static final Logger logger = LoggerFactory.getLogger(TeaPkgServiceImpl.class);
+
 
     @Autowired
     private TeaPkgRepository teaPkgRepository ;
@@ -79,9 +78,45 @@ public class TeaPkgServiceImpl implements TeaPkgService {
 
         return teaPkg;
     }
+    public void remove(TeaPkg teaPkg){
+        String masterName = teaPkg.getMaster();
+
+        Master master = masterRepository.findByName(masterName);
+
+        if (master!=null)
+            master.setMade(master.getMade()-1);
+
+        teaPkgRepository.saveAndFlush(teaPkg);
+
+    }
+
 
     @Override
     public List<TeaPkg> loadAll() {
         return teaPkgRepository.findAll();
     }
+
+    @Override
+    public TeaPkg findById(long id){
+        Optional<TeaPkg> optionalTeaPkg= teaPkgRepository.findById(id);
+        return optionalTeaPkg.orElse(null);
+    }
+
+    @Override
+    public boolean deleteById(long id) {
+        teaPkgRepository.deleteById(id);
+        return true;
+    }
+
+    @Override
+    public void sellById(long id) {
+        TeaPkg teaPkg ;
+        if (teaPkgRepository.existsById(id)){
+            teaPkg = teaPkgRepository.getOne(id);
+            teaPkg.setForsell(false);
+            teaPkgRepository.saveAndFlush(teaPkg);
+        }
+
+    }
+
 }
